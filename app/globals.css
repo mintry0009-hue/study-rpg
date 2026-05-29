@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 222 20% 7%;
+  --foreground: 160 16% 94%;
+  --card: 220 18% 10%;
+  --card-foreground: 160 16% 94%;
+  --primary: 158 74% 48%;
+  --primary-foreground: 164 80% 8%;
+  --secondary: 34 92% 56%;
+  --secondary-foreground: 30 24% 8%;
+  --muted: 218 15% 16%;
+  --muted-foreground: 162 10% 68%;
+  --accent: 191 82% 50%;
+  --accent-foreground: 200 28% 8%;
+  --destructive: 0 72% 55%;
+  --border: 218 16% 22%;
+  --input: 218 16% 20%;
+  --ring: 158 74% 48%;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 15% 0%, rgba(20, 184, 166, 0.12), transparent 28%),
+    radial-gradient(circle at 85% 10%, rgba(245, 158, 11, 0.1), transparent 24%),
+    hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+.hud-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.level-pulse {
+  animation: level-pulse 1.2s ease-out;
+}
+
+@keyframes level-pulse {
+  0% { transform: scale(0.96); box-shadow: 0 0 0 rgba(52, 211, 153, 0); }
+  45% { transform: scale(1.02); box-shadow: 0 0 42px rgba(52, 211, 153, 0.45); }
+  100% { transform: scale(1); box-shadow: 0 0 0 rgba(52, 211, 153, 0); }
+}
