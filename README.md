@@ -77,11 +77,13 @@ npm run dev
 
 Frontend on Vercel:
 
-- Set `NEXT_PUBLIC_API_URL=https://your-backend.example.com/api`
+- For this single Vercel project, leave `NEXT_PUBLIC_API_URL` unset so the app calls `/_/backend/api`
 - Build command: `npm run build`
 - Root directory: repository root
 - Included `vercel.json` lets Vercel detect and build the mobile-first Next.js app directly
 - The app includes a web manifest, standalone display mode, and portrait mobile viewport settings
+- For persistent accounts, set `DATABASE_URL` to a hosted PostgreSQL URL such as Neon, Supabase, Railway, or Render
+- Without `DATABASE_URL`, Vercel uses a temporary SQLite database at `/tmp/study_rpg.db`, which is useful for smoke tests but can reset between serverless instances
 
 Backend on Railway/Render:
 
