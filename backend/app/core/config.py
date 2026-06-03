@@ -5,6 +5,9 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 def default_database_url() -> str:
+    configured_url = os.getenv("DATABASE_URL") or os.getenv("POSTGRES_URL") or os.getenv("POSTGRES_URL_NON_POOLING")
+    if configured_url:
+        return configured_url
     if os.getenv("VERCEL"):
         return "sqlite:////tmp/study_rpg.db"
     return "postgresql+psycopg://postgres:postgres@localhost:5432/study_rpg"
